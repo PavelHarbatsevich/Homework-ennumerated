@@ -34,9 +34,15 @@ print("now is \(seasonNow)")
 //3. Написать метод, который принимает variadic parameter String?. (или маасив опцианальных строк [String?]) Метод возвращает количество nil объектов и печатает в консоль одну //строку всех объединенных не nil объектов.
 
 func productInFridge(product: [String?]) -> String?  {
+    var nilObjectsCount = 0
+    var nonNilStrings: [String] = []
+    
     product.forEach { product in
         if let product = product {
-            print("value is \(product)")
+            nonNilStrings.append(product)
+            print(nonNilStrings.joined(separator: " , "))
+        } else {
+            nilObjectsCount += 1
         }
     }
     return nil
